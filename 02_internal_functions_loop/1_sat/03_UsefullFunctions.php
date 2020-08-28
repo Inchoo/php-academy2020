@@ -42,10 +42,6 @@ echo $text;
 
 echo htmlspecialchars($text);
 
-file_put_contents('test-file.txt', 'Wrote to file!!!', FILE_APPEND);
-$textFromFile = file_get_contents('test-file.txt');
-echo $textFromFile;
-
 $array = [];
 if (empty($array)) {
     echo 'Empty' . PHP_EOL;
