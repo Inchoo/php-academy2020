@@ -1,12 +1,13 @@
-<?php 
-include_once "04_Config.php";
+<?php
+// Arrays - lists of items (items being variables, constants, other arrays, objects, etc..)
+// ASSOCIATIVE ARRAYS - use named keys
 
 $arr = [
-    "id" => 1,
-    "name" => "Pero"
+    'id' => 1,
+    'name' => 'Pero'
 ];
 
-echo $arr["name"], $b;
+echo $arr['name'];
 
 echo "<pre>";
 print_r($arr);

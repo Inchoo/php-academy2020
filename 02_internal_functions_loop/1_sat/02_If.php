@@ -1,6 +1,21 @@
 <?php
+// NOTE: Comment out parts you don't need.
 // Conditional statements - when we need to execute part of the code based on given condition
 // IF - basic syntax
+
+// Everything in given conditions is broken down to true or false, you can use var_dump to test
+var_dump(true);
+var_dump(false);
+
+// !true
+if (true) {
+    echo 'true';
+}
+
+// !false
+if (false) {
+    echo 'false';
+}
 
 $i = 3;
 // Loose equal operator - equality (value comparison)
@@ -8,6 +23,8 @@ $i = 3;
 if ($i == 3) {
     echo ' i equals 3 ';
 }
+
+var_dump($i == 3);
 
 // Strict equal operator - identity (both value and data type comparison - important)
 // IF (variable $i is identical to 3) {execute this}
@@ -19,6 +36,8 @@ if ($i === 3) {
 if ($i === '3') {
     echo ' i equals 3 ';
 }
+
+var_dump($i === '3');
 
 // We can compare strings too
 $letter = 'abc';
@@ -80,11 +99,9 @@ echo '46 OK';
 // Inline if (ternary operators) - used for cleaner presentation on one line
 echo $i === 3 ? ' 51 OK ' : ' 51 NOT ';
 
-
 // Alternative syntax for control structures
 // more on http://php.net/manual/en/control-structures.alternative-syntax.php
 ?>
-
 <?php if ($i === 3): ?>
 <html>
     <body>
@@ -93,17 +110,8 @@ echo $i === 3 ? ' 51 OK ' : ' 51 NOT ';
 </html>
 <?php endif; ?>
 
-<?php // This is shorthand operator (replaces echo to look cleaner, outputs the string) ?>
-<?= 'test' ?>
-
-//more on
-//http://php.net/manual/en/control-structures.if.php
-//http://php.net/manual/en/control-structures.else.php
-//http://php.net/manual/en/control-structures.elseif.php
-//https://www.php-fig.org/psr/psr-2/
-
 <?php
-// Task, write this by changing only X,Y:
+// Task:
 $number = 13.2;
 // If $number: (is integer and greater than 5 and lesser than 20) OR (is string and greater than 8 and lesser than 18)
 // output "1"
@@ -115,4 +123,27 @@ $number = 13.2;
 // output "4"
 // If nothing above
 // output "5"
-?>
+
+echo "\n\n";
+
+if ((is_int($number) && $number > 5 && $number < 20)
+|| (is_string($number) && $number > 8 && $number < 18)
+) {
+    echo '1';
+} elseif (is_string($number)) {
+    echo '2';
+} elseif (!is_string($number)) {
+    echo '3';
+} elseif ($number > 5 && $number < 20) {
+    echo '4';
+} else {
+    echo '5';
+}
+
+// Why others are not outputted?
+
+// Additional documentation:
+//http://php.net/manual/en/control-structures.if.php
+//http://php.net/manual/en/control-structures.else.php
+//http://php.net/manual/en/control-structures.elseif.php
+//https://www.php-fig.org/psr/psr-2/
