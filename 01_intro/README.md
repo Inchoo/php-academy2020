@@ -1,11 +1,19 @@
-Kod kuće instalirati potrebne preduvjete, postaviti vhost. Kreirati gihub repozitorij InchooPHPAkademijaZ1. Zadaću postaviti na polazniknn.inchoo4u.net/Z1
+## 1. Homework
 
-Kreirati mrežnu aplikaciju koje ima minimalno 5 različitih stranica koje su međusobno povezane (s svake stranice se može doći na neku drugu stranicu)
-1. stranica (index.html) - čisti HTML + CSS (neka bude ružna ali valjana po https://validator.w3.org/)
-2. stranica - koristiti Bootstrap https://getbootstrap.com/
-3. stranica - koristiti Foundation https://foundation.zurb.com/
-4. stranica - koristiti Skeleton http://getskeleton.com/
-5. stranica - Odabrati još jedan RWD s popisa https://www.awwwards.com/what-are-frameworks-22-best-responsive-css-frameworks-for-web-design.html
-Na stranicama prikazati korištenja najmanje 20 različitih operatora na smislenim primjerima koje ste sami smislili.
+### Preconditions
+1. Create GitHub profile if you don't have one
+2. Post your profile on General channel on Slack
 
-Svaki RWD staviti u vlastiti direktorij. Koristiti relativne putanje za povezivanje stranica.
+### Mandatory
+1. Create 3 pages using a [CSS Framework](https://www.creativebloq.com/features/best-css-frameworks) of your choice, besides Bootstrap.
+2. Every page must have a relative link to every other page.
+3. Together all 3 pages must have a total of 30 unique HTML elements
+4. Try to reuse as much content as possible if they are same between pages. At least one `include`/`include_once` and one `require`/`require_once` is mandatory.
+5. Together all 3 pages must have at least 10 PHP operators
+6. All 3 pages must be valid by [Markup Validation Service](https://validator.w3.org/)
+7. Your homework must be pushed (do not use file upload) to GitHub repository PHPAcademyHomework1. 
+
+### Extra points
+1. Do all of your work in _develop_ branch
+2. Once you are done, create a pull request and put one of your colleagues as a reviewer.
+3. When your homework is approved, merge it to the _master_ branch.
