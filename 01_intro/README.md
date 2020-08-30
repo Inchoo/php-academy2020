@@ -1,3 +1,5 @@
+Poslati github profil na General kanal na slacku
+
 Kod kuće instalirati potrebne preduvjete, postaviti vhost. Kreirati gihub repozitorij InchooPHPAkademijaZ1. Zadaću postaviti na polazniknn.inchoo4u.net/Z1
 
 Kreirati mrežnu aplikaciju koje ima minimalno 5 različitih stranica koje su međusobno povezane (s svake stranice se može doći na neku drugu stranicu)
