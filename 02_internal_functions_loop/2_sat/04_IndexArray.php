@@ -30,11 +30,11 @@ if(isset($arr[6])){
 }
 
 //add element into array
-$arr[]="Osijek";
+$arr[] = 'Osijek';
 echo $arr[count($arr)-1], PHP_EOL;
 print_r($arr);
 
-// Task: Make var_dump array that contains list of 1 of each: integer, string, constant, array, array that has 2 arrays inside
+// Task: Make var_dump that outputs array that contains list of 1 of each: integer, string, constant, array, array that has 2 arrays inside
 const TEST123 = 'test1234';
 var_dump([
     1,

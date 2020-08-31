@@ -9,9 +9,9 @@ $arr = [
 
 echo $arr['name'];
 
-echo "<pre>";
+echo '<pre>';
 print_r($arr);
-echo "</pre>";
+echo '</pre>';
 
 // Create array from string
 explode(',', '1,2,3,4,5,6,7');
