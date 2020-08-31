@@ -36,10 +36,15 @@ print_r($arr);
 
 // Task: Make var_dump that outputs array that contains list of 1 of each: integer, string, constant, array, array that has 2 arrays inside
 const TEST123 = 'test1234';
-var_dump([
+$testArr = [
     1,
     'string',
     TEST123,
     [],
     [[1234], ['stringtest']]
-]);
+];
+
+var_dump($testArr);
+
+in_array('string', $testArr, true);
+in_array('string2', $testArr, true);
