@@ -1,22 +1,18 @@
 <?php
+// Built in php functions (extras)
+// Function takes some number of arguments and based on them does or outputs something (preferably expected) in return.
 
-// basics https://www.cs.utah.edu/~germain/PPS/Topics/functions.html
+// Date manipulation
+echo date('m/d/Y');
 
-
-//usefull ones
-
-
-if(isset($i)){
-    echo $i;
-}
-
+// String length
 $city = 'Osijek';
-
-echo strlen($city) . PHP_EOL;
+echo PHP_EOL . strlen($city) . PHP_EOL;
 
 $city = '   Osijek     ';
 echo strlen($city) . PHP_EOL;
 
+// Remove whitespaces
 $city = trim($city);
 echo strlen($city) . PHP_EOL;
 
@@ -41,10 +37,6 @@ $text = '<h1>Content</h1>' . PHP_EOL;
 echo $text;
 
 echo htmlspecialchars($text);
-
-file_put_contents('test-file.txt', 'Wrote to file!!!', FILE_APPEND);
-$textFromFile = file_get_contents('test-file.txt');
-echo $textFromFile;
 
 $array = [];
 if (empty($array)) {
