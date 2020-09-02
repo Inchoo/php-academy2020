@@ -1,7 +1,9 @@
+drop table if exists student;
+
 create table student (
-    name text,
-    age int,
-    city text
+    name varchar(255),
+    age  int,
+    city varchar(255)
 );
 /*
 Data types: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
