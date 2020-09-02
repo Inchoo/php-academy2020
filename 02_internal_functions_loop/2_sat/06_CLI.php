@@ -6,7 +6,7 @@
 
 //Two variables are defined right away: $argv and $argc
 print_r($argv); // array always has the minimum length of 1. $argv[0] is file name
-print_r($argc);
+print_r($argc); // argc gives first param
 echo PHP_EOL;
 
 // try entering php (filename) test
@@ -33,11 +33,6 @@ $days = [
 ];
 if (isset($days[$argv[1]])) {
     echo $days[$argv[1]];
-
-
-//    file_put_contents('test-file.txt', 'Day: ' . $days[$argv[1]], FILE_APPEND);
-//    $textFromFile = file_get_contents('test-file.txt');
-//    echo $textFromFile;
 } else {
     echo 'Please use number lesser than 7 as argument';
 }

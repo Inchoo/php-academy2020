@@ -26,6 +26,7 @@ switch ($grade) {
         echo 'Bez ocjene';
 }
 
+// When using if/elseif/else only 1 block is executed, in switch/case more can be executed
 // if $i=0, all executed, after first one passes, without break all others will pass
 // Use break;
 //$i = 0;

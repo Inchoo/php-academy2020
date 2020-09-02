@@ -49,3 +49,19 @@ foreach($familyTree as $me => $parents) {
         }
     }
 }
+
+echo "<hr />";
+
+// Task: Iterate alphabet, bold 14th letter.
+// Task: Iterate alphabet, bold 14th and 17th letter, using in_array.
+$bolded = 13;
+$alphabet = 'a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z';
+$alphabetArray = explode(',', $alphabet);
+$alphabetCount = count($alphabetArray);
+foreach ($alphabetArray as $loc => $letter) {
+    if ($loc === $bolded) {
+        echo'<b>' . $letter . '</b>';
+    } else {
+        echo $letter;
+    }
+}

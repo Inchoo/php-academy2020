@@ -22,7 +22,7 @@ while ($i<10){
 
      // Infinite loop (without ++ inside)
     if($i===2){
-        $i++;
+        $i++;//
         continue;
     }
     echo $i++ . '<br />';
