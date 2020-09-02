@@ -17,6 +17,19 @@ if (false) {
     echo 'false';
 }
 
+if (3) {
+    echo 'true';
+}
+
+// typecasting
+var_dump((bool)3);
+
+if (0) {
+    echo 'true!!!';
+}
+var_dump((bool)0);
+
+
 $i = 3;
 // Loose equal operator - equality (value comparison)
 // IF (variable $i equals 3) {execute this}
