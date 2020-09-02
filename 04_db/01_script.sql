@@ -30,3 +30,9 @@ insert into student (name, age, city) values /* In theory there is no difference
                                              ('Iva Ivić', 25, 'Osijek'), /* Error Incorrect string value: '\xC4\x87' for column 'name' at row 1 */
                                              ('Mirko Mirkić', 49, 'Osijek'),
                                              ('Test Testić', 87, 'Zagreb');
+
+select * from student; /* same as select name, age, city from student */
+
+create table city (
+    name varchar (255)
+);
