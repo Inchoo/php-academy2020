@@ -12,6 +12,8 @@ CREATE DATABASE academy CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 https://dev.mysql.com/doc/refman/8.0/en/adding-collation.html
  */
 
+use academy;
+
 drop table if exists student;
 
 create table student (
