@@ -17,8 +17,9 @@ count($arr);
 // first element (starts with 0)
 echo $arr[0], PHP_EOL;
 
-// last element
+// last element (if we know it)
 echo $arr[4];
+// last element (if we dont know it)
 echo $arr[count($arr)-1], PHP_EOL; //count numbers of array and substract by 1 because it's starts with 0
 print_r($arr);
 

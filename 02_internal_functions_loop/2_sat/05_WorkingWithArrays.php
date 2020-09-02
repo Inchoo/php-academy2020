@@ -38,6 +38,41 @@ var_dump($users);
 
 var_dump($users['13/12/1988']['Joza']['Mato'][1]);
 
+
+// Array functions
+$arr1 = [1,2,'value1'];
+$arr2 = [
+    'test_key1' => 'value1',
+    'test_key2' => 'value2',
+];
+
+$arr1Keys = key($arr1);
+$arr2Keys = key($arr2);
+$arr1Values = array_values($arr1);
+$arr2Values = array_values($arr2);
+
+var_dump(isset($arr1Keys['test_key1']));
+unset($arr1Keys['test_key1']);
+var_dump(isset($arr1Keys['test_key1']));
+
+var_dump($arr1Keys);
+
+// php.net is your best friend, learn how to google and search what you need
+// Some function return array types, like this one you will find useful in near future
+$urlPars = parse_url('https://www.php.net/manual/en/function.parse-url.php');
+var_dump($urlPars);
+// parse url return array
+
+$name = str_split('Tomislav');
+var_dump($name);
+
+var_dump(array_merge($arr1, $arr2));
+var_dump(array_merge($urlPars, $users));
+
+$testArr = ['test_key' => 1,2,3];
+var_dump(in_array(1, $testArr));
+var_dump(array_key_exists('test_key', $testArr));
+
 //read more:http://php.net/manual/en/ref.array.php
 //https://www.w3resource.com/php-exercises/php-basic-exercises.php
 //https://www.w3resource.com/php-exercises/php-array-exercises.php
