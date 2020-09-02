@@ -34,5 +34,12 @@ insert into student (name, age, city) values /* In theory there is no difference
 select * from student; /* same as select name, age, city from student */
 
 create table city (
+    id int not null primary key auto_increment,
     name varchar (255)
 );
+/*
+ A primary key is a column or a set of columns that uniquely identifies each row in the table.
+ It can't be null and must be unique even if it consists of multiple columns.
+ https://www.mysqltutorial.org/mysql-primary-key/
+ */
+insert into city (name) values ('Osijek'), ('Zagreb');
