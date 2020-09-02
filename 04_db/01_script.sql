@@ -26,4 +26,7 @@ Data types: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
 Short explanation of the most common data types: https://dzone.com/articles/mysql-data-types-an-overview-of-the-data-types-in
  */
 
-insert into student (name, age, city) values ('Iva Ivić', 25, 'Osijek'); /* Error Incorrect string value: '\xC4\x87' for column 'name' at row 1 */
+insert into student (name, age, city) values /* In theory there is no difference between values and value: https://stackoverflow.com/a/17445644 */
+                                             ('Iva Ivić', 25, 'Osijek'), /* Error Incorrect string value: '\xC4\x87' for column 'name' at row 1 */
+                                             ('Mirko Mirkić', 49, 'Osijek'),
+                                             ('Test Testić', 87, 'Zagreb');
