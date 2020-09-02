@@ -1,3 +1,17 @@
+drop schema academy;
+CREATE DATABASE academy CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+/*
+ MySQL includes character set support that enables you to store data using a variety of character sets
+ and perform comparisons according to a variety of collations. The default MySQL server character set and collation
+ are utf8mb4 and utf8mb4_0900_ai_ci.
+ https://dev.mysql.com/doc/refman/8.0/en/charset.html
+
+ A collation is a set of rules that defines how to compare and sort character strings.
+ Each collation in MySQL belongs to a single character set. Every character set has at least one collation,
+ and most have two or more collations.
+https://dev.mysql.com/doc/refman/8.0/en/adding-collation.html
+ */
+
 drop table if exists student;
 
 create table student (
