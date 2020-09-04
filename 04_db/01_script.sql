@@ -14,35 +14,44 @@ https://dev.mysql.com/doc/refman/8.0/en/adding-collation.html
 
 use academy;
 
-drop table if exists student;
-
-create table student (
-    name varchar(255),
-    age  int,
-    city int
-);
-/*
-Data types: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
-Short explanation of the most common data types: https://dzone.com/articles/mysql-data-types-an-overview-of-the-data-types-in
- */
-
-insert into student (name, age, city) values /* In theory there is no difference between values and value: https://stackoverflow.com/a/17445644 */
-                                             ('Iva Ivić', 25, 1), /* Error Incorrect string value: '\xC4\x87' for column 'name' at row 1 */
-                                             ('Mirko Mirkić', 49, 1),
-                                             ('Test Testić', 87, 2);
-
-select * from student; /* same as select name, age, city from student */
-
-create table city (
-    id int not null primary key auto_increment,
-    name varchar (255)
-);
 /*
  A primary key is a column or a set of columns that uniquely identifies each row in the table.
  It can't be null and must be unique even if it consists of multiple columns.
  https://www.mysqltutorial.org/mysql-primary-key/
  */
-insert into city (name) values ('Osijek'), ('Zagreb');
+create table city
+(
+    id   int not null primary key auto_increment,
+    name varchar(255)
+);
+
+create table student
+(
+    id   int not null primary key auto_increment,
+    name varchar(255),
+    age  int,
+    city int,
+    foreign key (city)
+        references city (id)
+) ENGINE = InnoDB;
+/*
+Data types: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
+Short explanation of the most common data types: https://dzone.com/articles/mysql-data-types-an-overview-of-the-data-types-in
+ */
+insert into city (name)
+values ('Osijek'),
+       ('Zagreb');
+
+insert into student (name, age, city)
+values /* In theory there is no difference between values and value: https://stackoverflow.com/a/17445644 */
+    ('Iva Ivić', 25, 1), /* Error Incorrect string value: '\xC4\x87' for column 'name' at row 1 */
+    ('Mirko Mirkić', 49, 1),
+    ('Test Testić', 87, 2);
+
+select *
+from student;
+/* same as select name, age, city from student */
+
 
 /*
 We can join data regardless of the foreign key constraint.
@@ -50,4 +59,6 @@ One of the main purposes of the foreign key constraints is referential integrity
 In particular, data in different tables is kept consistent through the use of foreign key constraints, which can prevent changes from happening or automatically propagate those changes to all related tables.
 https://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_referential_integrity
 */
-select s.name, s.age, c.name as city from student s inner join city c on s.city = c.id;
+select s.name, s.age, c.name as city
+from student s
+         inner join city c on s.city = c.id;
