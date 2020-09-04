@@ -19,7 +19,7 @@ drop table if exists student;
 create table student (
     name varchar(255),
     age  int,
-    city varchar(255)
+    city int
 );
 /*
 Data types: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
@@ -27,9 +27,9 @@ Short explanation of the most common data types: https://dzone.com/articles/mysq
  */
 
 insert into student (name, age, city) values /* In theory there is no difference between values and value: https://stackoverflow.com/a/17445644 */
-                                             ('Iva Ivić', 25, 'Osijek'), /* Error Incorrect string value: '\xC4\x87' for column 'name' at row 1 */
-                                             ('Mirko Mirkić', 49, 'Osijek'),
-                                             ('Test Testić', 87, 'Zagreb');
+                                             ('Iva Ivić', 25, 1), /* Error Incorrect string value: '\xC4\x87' for column 'name' at row 1 */
+                                             ('Mirko Mirkić', 49, 1),
+                                             ('Test Testić', 87, 2);
 
 select * from student; /* same as select name, age, city from student */
 
@@ -43,3 +43,11 @@ create table city (
  https://www.mysqltutorial.org/mysql-primary-key/
  */
 insert into city (name) values ('Osijek'), ('Zagreb');
+
+/*
+We can join data regardless of the foreign key constraint.
+One of the main purposes of the foreign key constraints is referential integrity which is a  technique of maintaining data always in a consistent format.
+In particular, data in different tables is kept consistent through the use of foreign key constraints, which can prevent changes from happening or automatically propagate those changes to all related tables.
+https://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_referential_integrity
+*/
+select s.name, s.age, c.name as city from student s inner join city c on s.city = c.id;
