@@ -9,15 +9,6 @@ $func = function () {
 
 $func(); // call anonymous function from the variable
 
-/**
- * Anonymous functions
- */
-$func = function () {
-    echo 'this is an anonymous function';
-};
-
-$func(); // call anonymous function from the variable
-
 $customSort = function ($a, $b) {
     return $a <=> $b; // spaceship operator (-1, 0, 1)
 };
