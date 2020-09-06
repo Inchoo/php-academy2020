@@ -28,7 +28,8 @@ create table city
 create table student
 (
     id   int not null primary key auto_increment,
-    name varchar(255),
+    first_name varchar(255),
+    last_name varchar(255),
     age  int,
     city int,
     foreign key (city)
@@ -42,15 +43,15 @@ insert into city (name)
 values ('Osijek'),
        ('Zagreb');
 
-insert into student (name, age, city)
+insert into student (first_name, last_name, age, city)
 values /* In theory there is no difference between values and value: https://stackoverflow.com/a/17445644 */
-    ('Iva Ivić', 25, 1), /* Error Incorrect string value: '\xC4\x87' for column 'name' at row 1 */
-    ('Mirko Mirkić', 49, 1),
-    ('Test Testić', 87, 2);
+    ('Iva', 'Ivić', 25, 1), /* Error Incorrect string value: '\xC4\x87' for column 'name' at row 1 */
+    ('Mirko', 'Mirkić', 49, 1),
+    ('Test', 'Testić', 87, 2);
 
 select *
 from student;
-/* same as select name, age, city from student */
+/* same as select first name, last name, age, city from student */
 
 
 /*
@@ -59,6 +60,18 @@ One of the main purposes of the foreign key constraints is referential integrity
 In particular, data in different tables is kept consistent through the use of foreign key constraints, which can prevent changes from happening or automatically propagate those changes to all related tables.
 https://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_referential_integrity
 */
-select s.name, s.age, c.name as city
+select s.first_name, s.last_name, s.age, c.name as city
+from student s
+         inner join city c on s.city = c.id;
+
+# select first name, last name, age and city and sort data by first name desc
+select s.first_name, s.last_name, s.age, c.name as city
+from student s
+         inner join city c on s.city = c.id
+order by s.first_name desc;
+# Ordering data by last name would not be possible in the case where we keep full name in one column. First and last name are two separate data so keep them in separate columns.
+
+# select full student name in one column, age and city
+select CONCAT(s.first_name, ' ', s.last_name) as full_name, s.age, c.name as city
 from student s
          inner join city c on s.city = c.id;
