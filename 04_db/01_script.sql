@@ -75,3 +75,28 @@ order by s.first_name desc;
 select CONCAT(s.first_name, ' ', s.last_name) as full_name, s.age, c.name as city
 from student s
          inner join city c on s.city = c.id;
+
+create table lecture
+(
+    id   int not null primary key auto_increment,
+    name varchar(255),
+    ects int
+);
+
+create table student_lecture
+(
+    id      int not null primary key auto_increment,
+    student int,
+    lecture int,
+    grade   int,
+    foreign key (student)
+        references student (id),
+    foreign key (lecture)
+        references lecture (id)
+);
+
+update lecture
+set ects = 5
+where name = 'Database II';
+
+delete from city where name = 'Otok';
