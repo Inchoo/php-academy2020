@@ -86,13 +86,14 @@ create table lecture
 create table student_lecture
 (
     id      int not null primary key auto_increment,
-    student int,
-    lecture int,
+    student int not null,
+    lecture int not null,
     grade   int,
     foreign key (student)
         references student (id),
     foreign key (lecture)
         references lecture (id)
+    ON DELETE CASCADE
 );
 
 update lecture
@@ -100,3 +101,7 @@ set ects = 5
 where name = 'Database II';
 
 delete from city where name = 'Otok';
+
+delete from lecture where name = 'IOT';
+# By default we can't delete this lecture as it is referenced in another table. In our example we will add ON DELETE CASCADE.
+# Check other options: https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html#foreign-key-referential-actions
