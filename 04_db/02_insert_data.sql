@@ -8,7 +8,7 @@ values
     ('Snježana', 'Snježić', 25, 1),
     ('Ante', 'Antić', 20, 3),
     ('Tena', 'Tenić', 22, 3),
-    ('Suzana', 'Suzić', 33, 4)
+    ('Suzana', 'Suzić', 33, 4),
     ('Iva', 'Ivančić', 25, 3);
 
 insert into lecture (name, ects)
