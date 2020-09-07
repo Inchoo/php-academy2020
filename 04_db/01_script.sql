@@ -152,10 +152,3 @@ inner join lecture l on sl.lecture = l.id
 GROUP BY s.id
 HAVING SUM(l.ects) > 10;
 
-# Short intro to EAV
-# Magento: Select product SKUs and their names
-select cpe.sku, cpev.value from catalog_product_entity cpe
-inner join catalog_product_entity_varchar cpev on cpe.entity_id = cpev.entity_id
-inner join eav_attribute ea on cpev.attribute_id = ea.attribute_id
-inner join eav_entity_type eet on ea.entity_type_id = eet.entity_type_id
-where eet.entity_type_code = 'catalog_product' and ea.attribute_code = 'name';
