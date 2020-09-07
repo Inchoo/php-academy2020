@@ -1,6 +1,6 @@
-#SQL Homework
+# SQL Homework
 
-##Mandatory
+## Mandatory
 
 * Create unique meaningful database with at least 5 tables.
 * You must have at least one Many to One and one Many to Many relation
@@ -12,5 +12,5 @@
 * Result of the homework are two files: script.sql (where are all statements) and db_backup.sql which is a full database backup after all queries (hint: mysqldump)
 
 
-##Extra points
+## Extra points
 * Have at least one [trigger](https://dev.mysql.com/doc/refman/8.0/en/create-trigger.html)

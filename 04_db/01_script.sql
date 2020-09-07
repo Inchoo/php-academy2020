@@ -105,3 +105,57 @@ delete from city where name = 'Otok';
 delete from lecture where name = 'IOT';
 # By default we can't delete this lecture as it is referenced in another table. In our example we will add ON DELETE CASCADE.
 # Check other options: https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html#foreign-key-referential-actions
+
+# 1. Izlistaj sve kolegije koji imaju manje ili jednako od 4 ECTS boda.
+select * from lecture where ects <= 4;
+
+# 2. Izlistaj imena i prezimena studenata koji se zovu Iva i Ante.
+select first_name, last_name from student where first_name in ('Iva', 'Ante');
+select first_name, last_name from student where first_name = 'Iva' or first_name = 'Ante';
+
+# 3. Koliko kolegija ima 3 ECTS boda
+select COUNT(*) from lecture where ects = 3;
+
+# 4. Izlistaj 2 najstarija studenta
+select * from student order by age desc limit 2;
+
+# 5. Koliko različitih imena postoji među studentima
+select COUNT(DISTINCT first_name) from student;
+
+# 6. Izlistaj prosječnu dob studenata čije ime počinje sa slovom T i prezime završava na ić.
+select AVG(age) from student where first_name like 'T%' and last_name like '%ić';
+
+# 7. Izlistaj jedinstvene nazive gradove u kojima žive studenti
+select DISTINCT c.name from city c inner join student s on c.id = s.city;
+select c.name from city c inner join student s on c.id = s.city GROUP BY c.name;
+
+# 8. Izlistaj sve gradove i broj koliko studenata živi u tom gradu. Rezultate poredaj po broju studenata od najvećeg prema najmanjem
+select c.name, COUNT(s.id) as broj_studenata from city c left join student s on c.id = s.city GROUP BY c.id ORDER BY broj_studenata desc;
+
+# 9. Koja je prosječna ocjena studenata na kolegijima koji u nazivu imaju Introduction to Computer Science
+select AVG(sl.grade) from student_lecture sl inner join lecture l on sl.lecture = l.id where l.name like '%Introduction to Computer Science%';
+
+# 10. Koja je prosječna ocjena studenta Test Testić na svim kolegijima
+select AVG(sl.grade) from student_lecture sl inner join student s on sl.student = s.id where s.first_name = 'Test' and s.last_name = 'Testić';
+
+# 11. Izlistaj prezimena studenata koji žive u Osijeku i slušaju Database I kolegij
+select last_name from student s
+inner join city c on s.city = c.id
+inner join  student_lecture sl on s.id = sl.student
+inner join lecture l on sl.lecture = l.id
+where c.name = 'Osijek' and l.name = 'Database I';
+
+# 12. Izlistaj ime i prezime studenta te broj ECTS bodova čiji zbroj ECTS-a prelazi 10
+select s.first_name, s.last_name, SUM(l.ects) as broj_bodova from student_lecture sl
+inner join student s on sl.student = s.id
+inner join lecture l on sl.lecture = l.id
+GROUP BY s.id
+HAVING SUM(l.ects) > 10;
+
+# Short intro to EAV
+# Magento: Select product SKUs and their names
+select cpe.sku, cpev.value from catalog_product_entity cpe
+inner join catalog_product_entity_varchar cpev on cpe.entity_id = cpev.entity_id
+inner join eav_attribute ea on cpev.attribute_id = ea.attribute_id
+inner join eav_entity_type eet on ea.entity_type_id = eet.entity_type_id
+where eet.entity_type_code = 'catalog_product' and ea.attribute_code = 'name';
