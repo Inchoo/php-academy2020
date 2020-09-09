@@ -61,6 +61,8 @@ var_dump($i);
 
 // Override property $name to be public
 
+// final class (set Document on final class)
+
 // PHP, like Java, does not support multiple inheritance (cannot extend multiple classes - what if they got the same methods defined)
 // Diamond problem
 

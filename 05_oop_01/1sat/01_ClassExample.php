@@ -55,6 +55,10 @@ var_dump(get_class_methods('Person'));
 var_dump(method_exists($person, 'test'));
 var_dump(method_exists($person, 'getIncome'));
 
+// Instantiation using string (sometimes useful)
+$string = 'Person';
+var_dump(new $string());
+
 // Task: Create a new class with one method and property in class, assign it to a variable and var_dump the variable.
 // Assign the value to the property, try outputting the property.
 

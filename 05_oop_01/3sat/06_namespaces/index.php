@@ -47,9 +47,15 @@ echo $product->getType();
 
 // Namespaces can be used with abstract classes and interfaces the same way (when you need to implement them).
 
+// Must use full use path for instantiating classes using strings
+var_dump(class_exists('\Inchoo\Catalog\Product'));
+var_dump(class_exists('InchooProduct'));
+
 // Task: Create 3 classes with same name but different namespaces in 3 different directories.
 // Each class must have one function getName which will return string that contains its namespace (you can hardcode it)
 // Create index.php file in which you will instantiate those classes and output getName function for each.
 
 // Task2: In the same directory as those classes create interfaces that those classes will extend,
 // implement getName and setName functions in interface and classes
+
+// Task3, try instantiating a class using a string variable in index.php
