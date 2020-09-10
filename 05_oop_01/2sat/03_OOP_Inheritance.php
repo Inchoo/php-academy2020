@@ -67,4 +67,39 @@ var_dump($i);
 // Diamond problem
 
 // Task: Create a class with get and set methods and property which is private and outputted/set only using those methods
-// Task2: Extend this class and override get method so that it appends 'test' before the output.
+
+
+class Test
+{
+    protected $test;
+
+    public function getTest()
+    {
+        return $this->test;
+    }
+
+    public function setTest($test)
+    {
+        $this->test = $test;
+    }
+}
+
+$t = new Test();
+$t->setTest('ono dos');
+echo $t->getTest();
+
+// Task2: Extend this class and override `get` method so that it appends string 'test' before the output. Instantiate and output this child class and its get method.
+
+class TestExt extends Test
+{
+
+    public function getTest()
+    {
+        return 'test' . $this->test;
+    }
+}
+
+$t = new TestExt();
+$t->setTest('ono dos');
+echo $t->getTest();
+

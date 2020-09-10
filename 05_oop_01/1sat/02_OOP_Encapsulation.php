@@ -1,5 +1,5 @@
 <?php
-
+// ENCAPSULATION - keep certain logic accessible only on preferred way, and only preferred things from the whole logic
 /**
  * Class Game
  */
