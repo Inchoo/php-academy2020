@@ -6,9 +6,12 @@ use App\Exception\RouterException;
 
 class Router implements RouterInterface
 {
+    public const URL_SUFFIX = '.html';
+
     public function match(string $pathInfo)
     {
         $pathInfo = trim($pathInfo, '/');
+        $pathInfo = str_replace(self::URL_SUFFIX, '', $pathInfo);
         $parts = $pathInfo ? explode('/', $pathInfo) : [];
 
         if (count($parts) > 2) {
