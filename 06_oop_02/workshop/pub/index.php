@@ -13,13 +13,13 @@ spl_autoload_register(function ($class) {
 });
 
 $router = new \App\Core\Router();
-$frontController = new \App\Core\Application($router);
+$application = new \App\Core\Application($router);
 
 try {
-    $response = $frontController->run();
-}catch (\App\Exception\RouterException $e) {
+    $response = $application->run();
+} catch (\App\Exception\RouterException $e) {
     $response = '<h1>404</h1>';
-}catch (\Exception $e) {
+} catch (\Exception $e) {
     $response = '<h1>500</h1>';
 }
 
