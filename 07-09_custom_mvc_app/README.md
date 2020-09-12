@@ -1,24 +1,41 @@
-Zadaća 06
-========
-Obavezne funkcionalnosti
---------
+# Social Network MVC app
 
-1. Postove na početnoj stranici poredati tako da se zadnje kreirani nalazi uvijek na prvom mjestu
-2. Uz svaki post se može priložiti i slika u jpg formatu, ali ona nije obavezna prilikom kreiranja. Ako je priložena,
-mora biti pokazana na početnoj stranici i u detaljima.
-3. U ispisu postova na početnoj stranici dodati vrijeme nastanka u ovom formatu 01.02.2019. 09:16
-4. Omogućiti pregled komentara za svaki post u njegovim detaljima 
-5. Dodavanje novog komentara koji će se nalaziti prvi u popisu
-6. Na početnoj stranici ispisati broj komentara pored svakog posta.
-7. Svaki post se u njegovim detaljima može obrisati.
-8. Staviti config.php u .gitignore file. **Na GitHubu se nikada ne nalaze produkcijski pristupni podaci.**
+* Place the following line in /etc/hosts
+```
+127.0.0.1 social-network.loc
+```
+`* Login to docker container as root
+```
+./hooli console -root
+```
+* Create file social-academy.loc.conf in /etc/apache2/sites-available/
+* Place this content in it and save it:
 
-Poželjne funkcionalnosti
---------
-1. Upogoniti RWD framework da aplikacija izgleda malo ljepše.
+```
+<VirtualHost *:80>
+    ServerAdmin social-network.loc
+    ServerName  social-network.loc
+    Serveralias www.social-network.loc
+    DocumentRoot /var/www/html/07-09_custom_mvc_app/pub
+    <Directory "/var/www/html/07-09_custom_mvc_app/pub/">
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+    </Directory>
+    <FilesMatch \.php$>
+		SetHandler "proxy:unix:/run/php/php-fpm.sock|fcgi://social-network.loc/"
+	</FilesMatch>
 
-
-Kreirati GitHub repozitorij InchooPHPAkademijaZ6. Sve promjene na bazi moraju se nalaziti u script.sql datoteci.
-Na serveru koristiti bazu polaznikNN_mvc s pristupnim podacima koje ste dobili. 
-Zadaću postaviti na server u mvc direktorij. Aplikacija mora biti dostupna na adresi polazniknnmvc.inchoo4u.net. 
-(Aplikaciju koja se nalazi već u tom direktoriju zbog 5. zadaće zamijeniti s novom verzijom)
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+* Execute the following command
+```
+a2ensite social-academy.loc.conf
+```
+* Exit docker container and execute
+```
+./hooli stop && ./hooli start
+```
+* Open [social-network.loc](http://social-network.loc) in browser
