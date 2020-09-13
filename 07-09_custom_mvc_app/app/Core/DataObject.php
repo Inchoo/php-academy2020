@@ -30,4 +30,17 @@ class DataObject
     {
         unset($this->data[$key]);
     }
+
+    public function __call($name, $arguments)
+    {
+        $function = substr($name, 0, 3);
+        if ($function === 'set') {
+            $this->__set(strtolower(substr($name, 3)), $arguments[0]);
+            return $this;
+        } else if ($function === 'get') {
+            return $this->__get(strtolower(substr($name, 3)));
+        }
+
+        return $this;
+    }
 }

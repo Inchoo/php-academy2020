@@ -31,4 +31,16 @@ class View
         }
         return $this;
     }
+
+    /**
+     * @param string $date
+     * @param string $format
+     * @return string
+     * @throws \Exception
+     */
+    public function formatDate(string $date, string $format = 'd.m. H:i'): string
+    {
+        $date = new \DateTime($date);
+        return $date->format($format);
+    }
 }
