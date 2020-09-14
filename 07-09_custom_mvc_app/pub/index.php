@@ -1,4 +1,11 @@
 <?php
+/*
+ * The model-view-controller (MVC) pattern (...) lets you break up code into logical objects that serve very specific purposes.
+ * Models serve as a data access layer where data is fetched and returned in formats usable throughout your application.
+ * Controllers handle the request, process the data returned from models and load views to send in the response.
+ * And views are display templates (markup, xml, etc) that are sent in the response to the web browser.
+ * Source: https://phptherightway.com/pages/Design-Patterns.html
+ */
 
 define('BP', dirname(__DIR__));
 
