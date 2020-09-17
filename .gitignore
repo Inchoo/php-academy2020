@@ -1,2 +1,4 @@
 /.idea/*
 /07-09_custom_mvc_app/app/config.php
+07-09_custom_mvc_app/var/session/*
+!07-09_custom_mvc_app/var/session/.gitkeep

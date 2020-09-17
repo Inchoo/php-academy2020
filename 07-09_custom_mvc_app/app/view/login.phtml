@@ -1,0 +1,15 @@
+<?php if (isset($message)) : ?>
+    <?php echo $message; ?>
+<?php endif ?>
+
+<form method="post" action="<?php echo App\Core\Config::get('url') ?>user/loginSubmit">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email">
+
+        <label for="password">Password</label>
+        <input type="password" name="pass">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Authorize</button>
+</form>

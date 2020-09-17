@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Core\Session;
 use App\Core\View;
 use App\Model\Post;
 
@@ -14,11 +15,17 @@ class HomeController
     private $postRepository;
 
     /**
+     * @var Session
+     */
+    private $session;
+
+    /**
      * HomeController constructor.
      */
     public function __construct()
     {
         $this->postRepository = new Post\PostRepository();
+        $this->session = Session::getInstance();
     }
 
     public function indexAction()
@@ -26,8 +33,14 @@ class HomeController
         $view = new View();
         $posts = $this->postRepository->getList();
 
-        $view->render('index', [
-            "posts" => $posts
-        ]);
+        $data = [
+            'posts' => $posts,
+        ];
+
+        $user = $this->session->getUser();
+        if ($user && $user->getFirstname()) {
+            $data['firstname'] = $user->getFirstname();
+        }
+        $view->render('index', $data);
     }
 }
